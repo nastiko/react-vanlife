@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Van(props) {
     const { id, imageUrl, name, price, type } = props;
 
     return (
         <>
-            <div key={id}>
+            <Link to={`/vans/${id}`} key={id}>
                 <div className="w-full">
                     <img className="w-full h-full object-cover rounded-[5px] my-0" src={imageUrl} alt={name}/>
                 </div>
@@ -19,7 +20,7 @@ export default function Van(props) {
                     </div>
                 </div>
                 <span className={`h-[34px] text-[#ffffff] font-medium rounded-[5px] capitalize py-[6px] px-[26px] ${type}`}>{type}</span>
-            </div>
+            </Link>
         </>
     )
 }
