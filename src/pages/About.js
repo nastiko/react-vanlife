@@ -4,7 +4,7 @@ import bgImg from "../assets/images/about-hero.png";
 export default function About() {
     return (
         <>
-            <div className="bg-[#FFF7ED]">
+            <div>
                 <img src={bgImg} className="w-full h-[500px] lg:h-[750px] object-cover" alt="About Hero" />
                 <div className="px-5">
                     <div className="max-w-full prose prose-h1:leading-[38px] prose-h1:font-semibold prose-h1:mt-[55px]

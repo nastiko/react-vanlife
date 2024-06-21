@@ -23,7 +23,7 @@ const router = createBrowserRouter(
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />
             <Route path="vans" element={<Vans />} />
-            <Route path="vans/:id" element={<VanDetail />} />
+            <Route path="vans/:id" element={<VanDetail />} /> // create params ":id"
         </Route>
     )
 )

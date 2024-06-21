@@ -6,7 +6,7 @@ export default function Van(props) {
 
     return (
         <>
-            <Link to={`/vans/${id}`} key={id}>
+            <Link className="no-underline" to={`/vans/${id}`} key={id}>
                 <div className="w-full">
                     <img className="w-full h-full object-cover rounded-[5px] my-0" src={imageUrl} alt={name}/>
                 </div>
