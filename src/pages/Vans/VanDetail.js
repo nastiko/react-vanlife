@@ -31,7 +31,7 @@ export default function VanDetail() {
                             <button className="bg-[#FF8C38] text-[#ffffff] font-bold w-full no-underline rounded text-center transition-all duration-300 hover:translate-x-px hover:translate-y-px p-3 mt-[27px]">Rent this van</button>
                         </div>
                     </div>
-                ) : <h2 className="text-[32px] leading-[36px] text-[#000000] font-semibold px-5">Loading...</h2>}
+                ) : <h2 className="text-[32px] leading-[36px] text-[#000000] font-semibold px-5 my-[37px]">Loading...</h2>}
             </div>
         </>
     )

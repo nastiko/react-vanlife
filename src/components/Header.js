@@ -6,9 +6,9 @@ export default function Header() {
             <header className="bg-[#FFF7ED] h-[110px] flex items-center justify-between p-5">
                 <Link className="text-[25px] font-bold text-[#000000] uppercase hover:underline hover:decoration-2" to="/">#VANLIFE</Link>
                 <nav>
-                    <NavLink className="font-medium text-[#4D4D4D] hover:underline hover:decoration-2 py-[5px] px-5" to="host">Host</NavLink>
-                    <NavLink className="font-medium text-[#4D4D4D] hover:underline hover:decoration-2 py-[5px] px-5" to="about">About</NavLink>
-                    <NavLink className="font-medium text-[#4D4D4D] hover:underline hover:decoration-2 py-[5px] px-5" to="vans">Vans</NavLink>
+                    <NavLink className={({isActive}) => `font-medium text-[#4D4D4D] hover:underline hover:decoration-2 py-[5px] px-5 ${isActive ? 'font-semibold underline decoration-2' : ''}`} to="host">Host</NavLink>
+                    <NavLink className={({isActive}) => `font-medium text-[#4D4D4D] hover:underline hover:decoration-2 py-[5px] px-5 ${isActive ? 'font-semibold underline decoration-2' : ''}`} to="about">About</NavLink>
+                    <NavLink className={({isActive}) => `font-medium text-[#4D4D4D] hover:underline hover:decoration-2 py-[5px] px-5 ${isActive ? 'font-semibold underline decoration-2' : ''}`} to="vans">Vans</NavLink>
                 </nav>
             </header>
         </>
