@@ -12,13 +12,11 @@ export default function VanDetail() {
             .then(data => setVanDetail(data.vans))
     }, [params.id])
 
-    console.log(vanDetail)
-
     return (
         <>
             <div>
                 {vanDetail ? (
-                    <div className="max-w-xl px-5 sm:px-0 py-10 mx-auto">
+                    <div className="h-[calc(100vh-184px)] max-w-xl px-5 sm:px-0 py-10 mx-auto">
                         <div className="w-full md:h-[490px] flex justify-center">
                             <img className="w-full h-full object-cover rounded-[5px] my-0" src={vanDetail.imageUrl} alt={vanDetail.name}/>
                         </div>

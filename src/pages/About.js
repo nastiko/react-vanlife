@@ -13,7 +13,7 @@ export default function About() {
                         <p>Our mission is to enliven your road trip with the perfect travel van rental. Our vans are recertified before each trip to ensure your travel plans can go off without a hitch. (Hitch costs extra 😉)</p>
                         <p>Our team is full of vanlife enthusiasts who know firsthand the magic of touring the world on 4 wheels.</p>
                     </div>
-                    <div className="bg-[#FFCC8D] rounded-[5px] flex flex-col p-[32px] mt-10
+                    <div className="bg-[#FFCC8D] rounded-[5px] flex flex-col p-[32px] my-10
                                     max-w-full prose prose-h2:font-semibold prose-h2:my-0">
                         <h2>Your destination is waiting.</h2>
                         <h2>Your van is ready.</h2>
