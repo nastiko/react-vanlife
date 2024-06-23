@@ -1,8 +1,10 @@
 import React, {useState} from "react";
-import {Link, useParams} from "react-router-dom";
+import {Link, useParams, useLocation} from "react-router-dom";
 
 export default function VanDetail() {
     const params = useParams();
+    const location = useLocation();
+    const getQuery  = location.state && location.state.getQuery || "";
 
     const [vanDetail, setVanDetail] = useState(null);
 
@@ -15,7 +17,7 @@ export default function VanDetail() {
     return (
         <>
             <div className="max-w-xl px-5 sm:px-0 mx-auto">
-                <Link to=".."
+                <Link to={{pathname: '..', search: getQuery }}
                       relative="path"
                       className="flex items-center gap-x-2">
                     <span className="mb-1">&larr;</span>

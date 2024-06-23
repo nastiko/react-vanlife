@@ -1,12 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-export default function VanItem(props) {
+export default function VanListItem(props) {
     const { id, imageUrl, name, price, type } = props;
+    const location = useLocation();
 
     return (
         <>
-            <Link className="no-underline" to={`${id}`} state={{}} key={id}>
+            <Link className="no-underline" to={`${id}`} key={id} state={{ getQuery: location.search }}>
                 <div className="w-full">
                     <img className="w-full h-full object-cover rounded-[5px] my-0" src={imageUrl} alt={name}/>
                 </div>
