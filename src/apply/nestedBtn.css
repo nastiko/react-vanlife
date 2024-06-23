@@ -1,0 +1,15 @@
+.nested-navBtn {
+    @apply text-[#4D4D4D] bg-[#FFEAD0] font-normal rounded-[5px] transition-all duration-200 py-[6px] px-[26px] hover:text-[#FFEAD0];
+}
+
+.simple {
+    @apply bg-[#E17654] text-[#FFEAD0];
+}
+
+.luxury {
+    @apply bg-[#161616] text-[#FFEAD0];
+}
+
+.rugged {
+    @apply bg-[#FFEAD0] text-[#FFEAD0];
+}

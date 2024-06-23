@@ -1,8 +1,8 @@
 import React, {useState} from "react";
-import VanItem from "./VanItem";
+import HostVanItem from "./HostVanItem";
 
 
-export default function VansList() {
+export default function HostVansList() {
 
     const [vansList, setVansList] = useState([]);
 
@@ -13,7 +13,7 @@ export default function VansList() {
     }, [])
 
     const list = vansList.map(item => {
-        return <VanItem key={item.id} {...item} />
+        return <HostVanItem key={item.id} {...item} />
     })
 
     return (

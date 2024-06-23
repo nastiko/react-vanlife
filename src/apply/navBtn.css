@@ -1,0 +1,7 @@
+.navBtn {
+    @apply font-normal text-[#4D4D4D] hover:underline hover:decoration-2 py-[5px] px-5;
+}
+
+.active-navBtn {
+    @apply font-semibold underline decoration-2;
+}

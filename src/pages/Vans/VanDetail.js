@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {useParams} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 
 export default function VanDetail() {
     const params = useParams();
@@ -14,9 +14,17 @@ export default function VanDetail() {
 
     return (
         <>
+            <div className="max-w-xl px-5 sm:px-0 mx-auto">
+                <Link to=".."
+                      relative="path"
+                      className="flex items-center gap-x-2">
+                    <span className="mb-1">&larr;</span>
+                    <span>Back to all vans</span>
+                </Link>
+            </div>
             <div>
                 {vanDetail ? (
-                    <div className="h-[calc(100vh-184px)] max-w-xl px-5 sm:px-0 py-10 mx-auto">
+                    <div className="h-[calc(100vh-184px)] max-w-xl px-5 sm:px-0 pt-5 pb-10 mx-auto">
                         <div className="w-full md:h-[490px] flex justify-center">
                             <img className="w-full h-full object-cover rounded-[5px] my-0" src={vanDetail.imageUrl} alt={vanDetail.name}/>
                         </div>

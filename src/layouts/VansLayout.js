@@ -1,10 +1,10 @@
-import VansHeader from '../pages/Host/pages/Vans/VansHeader';
+import HostVansHeader from '../pages/Host/pages/Vans/HostVansHeader';
 import { Outlet } from "react-router-dom";
 
 export default function VansLayout({context}) {
     return (
         <>
-            <VansHeader />
+            <HostVansHeader />
             <main>
                 <Outlet context={context} />
             </main>

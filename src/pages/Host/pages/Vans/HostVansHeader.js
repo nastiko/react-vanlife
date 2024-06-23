@@ -1,19 +1,21 @@
 import {NavLink} from "react-router-dom";
 
-export default function Header() {
+export default function HostVansHeader() {
+
     return (
         <>
-            <header className="bg-[#FFF7ED] h-[110px] flex items-center py-5">
+            <header className="flex items-center py-5">
                 <nav>
                     <NavLink className={({isActive}) => `navBtn ${isActive ? 'active-navBtn' : ''}`}
                              to="."
-                             end>Dashboard</NavLink>
+                             end>Details</NavLink>
                     <NavLink className={({isActive}) => `navBtn ${isActive ? 'active-navBtn' : ''}`}
-                             to="income">Income</NavLink>
+                             to="price"
+                             end>Price</NavLink>
                     <NavLink className={({isActive}) => `navBtn ${isActive ? 'active-navBtn' : ''}`}
-                             to="host-vans">Vans</NavLink>
-                    <NavLink className={({isActive}) => `navBtn ${isActive ? 'active-navBtn' : ''}`}
-                             to="reviews">Reviews</NavLink>
+                             to="photos"
+                             end>Photos</NavLink>
+
                 </nav>
             </header>
         </>

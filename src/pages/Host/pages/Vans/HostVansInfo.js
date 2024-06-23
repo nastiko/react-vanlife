@@ -3,7 +3,7 @@ import {Link, useParams} from "react-router-dom";
 import VansLayout from "../../../../layouts/VansLayout";
 
 
-export default function VansInfo() {
+export default function HostVansInfo() {
 
     const params = useParams();
     const [vanInfo, setVansInfo] = useState(null);
