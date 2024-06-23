@@ -7,7 +7,7 @@ export default function VanListItem(props) {
 
     return (
         <>
-            <Link className="no-underline" to={`${id}`} key={id} state={{ getQuery: location.search }}>
+            <Link className="no-underline" to={`${id}`} key={id} state={{ getQuery: location.search , type: type }}>
                 <div className="w-full">
                     <img className="w-full h-full object-cover rounded-[5px] my-0" src={imageUrl} alt={name}/>
                 </div>
