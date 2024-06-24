@@ -4,10 +4,7 @@ import {Link, useParams, useLocation} from "react-router-dom";
 export default function VanDetail() {
     const params = useParams();
     const location = useLocation();
-    console.log(location);
-    const getQuery  = location.state && location.state.getQuery || "";
-    const type = location.state && location.state.type || "all";
-    console.log('Type:', type);
+    const getQuery = location.state && location.state.getQuery || "";
 
     const [vanDetail, setVanDetail] = useState(null);
 
@@ -25,7 +22,7 @@ export default function VanDetail() {
                           relative="path"
                           className="flex items-center gap-x-2">
                         <span className="mb-1">&larr;</span>
-                        <span>Back to {type} vans</span>
+                        <span>Back to {getQuery && vanDetail ? `${vanDetail.type}` : 'all'} vans</span>
                     </Link>
                 </div>
                 <div>
