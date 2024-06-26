@@ -11,17 +11,18 @@ import "./server";
 // pages
 import Home from "./pages/Home";
 import About from "./pages/About";
-import VansList from "./pages/Vans/VansList";
-import VanDetail from "./pages/Vans/VanDetail";
+import VansList, {loader as vansLoader} from "./pages/Vans/VansList";
+import VanDetail, {loader as vansDetailLoader} from "./pages/Vans/VanDetail";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
+import Error from "./components/Error";
 
 // host pages
 import Dashboard from "./pages/Host/pages/Dashboard";
 import Income from "./pages/Host/pages/Income";
 import Reviews from "./pages/Host/pages/Reviews";
-import HostVansList from "./pages/Host/pages/Vans/HostVansList";
-import HostVansInfo from "./pages/Host/pages/Vans/HostVansInfo";
+import HostVansList, {loader as hostVansLoader} from "./pages/Host/pages/Vans/HostVansList";
+import HostVansInfo, {loader as hostVansInfo} from "./pages/Host/pages/Vans/HostVansInfo";
 import HostVansDetails from "./pages/Host/pages/Vans/HostVansDetails";
 import VansPricing from "./pages/Host/pages/Vans/HostVansPricing";
 import HostVansPhotos from "./pages/Host/pages/Vans/HostVansPhotos";
@@ -35,31 +36,74 @@ const router = createBrowserRouter(
         <Route path="/" element={<RootLayout/>}>
             <Route index element={<Home/>}/>
 
-            <Route path="host" element={<HostLayout />}>
-                <Route index element={<Dashboard />}/>
-                <Route path="income" element={<Income />}/>
+            <Route>
+                <Route
+                    loader={async () => {
+                        return null
+                    }}
+                    path="host"
+                    element={<HostLayout/>}>
+                    <Route
+                        loader={async () => {
+                            return null
+                        }}
+                        index
+                        element={<Dashboard/>}/>
+                    <Route
+                        loader={async () => {
+                            return null
+                        }}
+                        path="income"
+                        element={<Income/>}/>
 
-                <Route path="host-vans">
-                    <Route index element={<HostVansList />}/>
-                    <Route path=":id" element={<HostVansInfo />}>
-                        <Route index element={<HostVansDetails />}/>
-                        <Route path="price" element={<VansPricing />}/>
-                        <Route path="photos" element={<HostVansPhotos />}/>
+                    <Route
+                        loader={hostVansLoader}
+                        path="host-vans"
+                        element={<HostVansList/>}/>
+                    <Route
+                        loader={hostVansInfo}
+                        path="host-vans/:id"
+                        element={<HostVansInfo/>}>
+                        <Route
+                            loader={async () => {
+                                return null
+                            }}
+                            index
+                            element={<HostVansDetails/>}/>
+                        <Route
+                            loader={async () => {
+                                return null
+                            }}
+                            path="price"
+                            element={<VansPricing/>}/>
+                        <Route
+                            loader={async () => {
+                                return null
+                            }}
+                            path="photos"
+                            element={<HostVansPhotos/>}/>
                     </Route>
-                </Route>
 
-                <Route path="reviews" element={<Reviews />}/>
+                    <Route path="reviews" element={<Reviews/>}/>
+                </Route>
             </Route>
 
             <Route path="about" element={<About/>}/>
-            <Route path="login" element={<Login/>} />
+            <Route path="login" element={<Login/>}/>
 
-            <Route path="vans">
-                <Route index element={<VansList/>} />
-                <Route path=":id" element={<VanDetail/>}/>
-            </Route>
+            <Route
+                path="vans"
+                element={<VansList/>}
+                errorElement={<Error/>}
+                loader={vansLoader}
+            />
+            <Route
+                path="vans/:id"
+                element={<VanDetail/>}
+                loader={vansDetailLoader}
+            />
 
-            <Route path="*" element={<NotFound />} />
+            <Route path="*" element={<NotFound/>}/>
         </Route>
     )
 )

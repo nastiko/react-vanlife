@@ -1,19 +1,19 @@
 import React from 'react';
 import VanListItem from './VanListItem';
-import {useSearchParams} from "react-router-dom";
+import { useSearchParams, useLoaderData } from "react-router-dom";
+import { getVans } from "../../api"
 
+
+export function loader() {
+    return getVans();
+}
 
 export default function VansList() {
-
     const [searchParams, setSearchParams] = useSearchParams();
-    const [vans, setVansData] = React.useState([]);
-    const typeFilter = searchParams.get('type');
+    const [error, setError] = React.useState(null)
+    const vans = useLoaderData();
 
-    React.useEffect(() => {
-        fetch("/api/vans")
-            .then(res => res.json())
-            .then(data => setVansData(data.vans))
-    }, []);
+    const typeFilter = searchParams.get('type');
 
     // get filtered items collection
     const displayCharacters = typeFilter ? vans.filter(item => item.type.toLowerCase() === typeFilter) : vans;
@@ -32,6 +32,10 @@ export default function VansList() {
 
             return prevParams;
         })
+    }
+
+    if (error) {
+        return <h1>There was an error: {error.message}</h1>
     }
 
     return (

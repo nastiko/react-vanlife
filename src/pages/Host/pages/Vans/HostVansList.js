@@ -1,16 +1,15 @@
 import React, {useState} from "react";
+import { useLoaderData} from "react-router-dom";
 import HostVanItem from "./HostVanItem";
+import { getHostVans } from "../../../../api"
 
+
+export function loader() {
+    return getHostVans();
+}
 
 export default function HostVansList() {
-
-    const [vansList, setVansList] = useState([]);
-
-    React.useEffect(() => {
-        fetch('/api/host/vans')
-            .then((res) => res.json())
-            .then((data) => setVansList(data.vans))
-    }, [])
+    const vansList = useLoaderData();
 
     const list = vansList.map(item => {
         return <HostVanItem key={item.id} {...item} />
