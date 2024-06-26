@@ -14,6 +14,7 @@ import About from "./pages/About";
 import VansList from "./pages/Vans/VansList";
 import VanDetail from "./pages/Vans/VanDetail";
 import NotFound from "./pages/NotFound";
+import Login from "./pages/Login";
 
 // host pages
 import Dashboard from "./pages/Host/pages/Dashboard";
@@ -51,6 +52,8 @@ const router = createBrowserRouter(
             </Route>
 
             <Route path="about" element={<About/>}/>
+            <Route path="login" element={<Login/>} />
+
             <Route path="vans">
                 <Route index element={<VansList/>} />
                 <Route path=":id" element={<VanDetail/>}/>

@@ -9,6 +9,11 @@ export default function Header() {
                     <NavLink className={({isActive}) => `navBtn ${isActive ? 'active-navBtn' : ''}`} to="host">Host</NavLink>
                     <NavLink className={({isActive}) => `navBtn ${isActive ? 'active-navBtn' : ''}`} to="about">About</NavLink>
                     <NavLink className={({isActive}) => `navBtn ${isActive ? 'active-navBtn' : ''}`} to="vans">Vans</NavLink>
+                    <Link to="login">
+                        <img
+                        src="../assets/images/user-login.svg"
+                        alt="User Login" />
+                    </Link>
                 </nav>
             </header>
         </>
