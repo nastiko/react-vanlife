@@ -1,9 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 import {Link, useLoaderData} from "react-router-dom";
 import VansLayout from "../../../../layouts/VansLayout";
 import {getHostVans} from "../../../../api";
+import {requireAuth} from "../../../../utils";
 
-export function loader({params}) {
+export async function loader({params}) {
+    await requireAuth();
     return getHostVans(params.id);
 }
 
