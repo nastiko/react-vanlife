@@ -1,10 +1,17 @@
 import {useState} from "react";
+import {useLoaderData} from "react-router-dom";
+
+export function loader({request}) {
+    return new URL(request.url).searchParams.get("message")
+}
 
 export default function Login() {
     const [formData, setFormData] = useState({
         email: "",
         password: ""
     })
+
+    const message = useLoaderData();
 
     function handleChange(e) {
         const {name, value} = e.target;
@@ -23,7 +30,8 @@ export default function Login() {
     return (
         <>
             <div className="h-[calc(100vh-184px)] flex flex-col items-center px-5">
-                <h1 className="text-[32px] leading-[36px] text-[#161616] font-bold mb-10">Sign in to your account</h1>
+                <h1 className="text-[32px] leading-[36px] text-[#161616] font-bold mb-4">Sign in to your account</h1>
+                { message && <h3 className="text-[#ff3860] mb-10">{message}</h3>}
                 <form className="max-w-[500px] w-full flex flex-col" onSubmit={handleSubmit}>
                     <input
                         type="email"

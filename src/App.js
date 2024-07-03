@@ -12,7 +12,7 @@ import About from "./pages/About";
 import VansList, {loader as vansLoader} from "./pages/Vans/VansList";
 import VanDetail, {loader as vansDetailLoader} from "./pages/Vans/VanDetail";
 import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
+import Login, {loader as loginLoader} from "./pages/Login";
 import Error from "./components/Error";
 
 // host pages
@@ -83,7 +83,11 @@ const router = createBrowserRouter(
             </Route>
 
             <Route path="about" element={<About/>}/>
-            <Route path="login" element={<Login/>}/>
+            <Route
+                path="login"
+                element={<Login/>}
+                loader={loginLoader}
+            />
 
             <Route
                 path="vans"
