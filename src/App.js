@@ -87,7 +87,7 @@ const router = createBrowserRouter(
             <Route path="about" element={<About/>}/>
             <Route
                 path="login"
-
+                element={<Login/>}
                 loader={loginLoader}
                 action={loginForm}
             />

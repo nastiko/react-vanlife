@@ -15,7 +15,7 @@ export async function getVans(id) {
 export async function getHostVans(id) {
     const url = id ? `/api/host/vans/${id}` : "/api/host/vans";
     const res = await fetch(url)
-    if(!res.ok) {
+    if (!res.ok) {
         throw {
             message: "Failed to fetch vans",
             statusText: res.statusText,
@@ -28,17 +28,13 @@ export async function getHostVans(id) {
 
 export async function loginUser(creds) {
     const res = await fetch("/api/login",
-        { method: "post", body: JSON.stringify(creds) }
+        {method: "post", body: JSON.stringify(creds)}
     )
     const data = await res.json()
 
-    if (!res.ok) {
-        throw {
-            message: data.message,
-            statusText: res.statusText,
-            status: res.status
-        }
+    if (res.ok && data && data.token) {
+        return data;
+    } else {
+        throw new Error('Something went wrong, please try again later.');
     }
-
-    return data
 }

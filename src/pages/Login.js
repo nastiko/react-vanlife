@@ -8,21 +8,33 @@ import {
 import {loginUser} from "../api";
 
 export function loader({request}) {
-    return new URL(request.url).searchParams.get("message")
+    const isLoggedIn = localStorage.getItem("loggedin");
+    if (isLoggedIn) {
+        const response = redirect('/host');
+        response.body = true;
+        return response;
+    }
+
+    let result = new URL(request.url).searchParams.get("message");
+
+    return result;
 }
 
-export async function action({request}) {
+export async function action({params, request}) {
     const formData = await request.formData();
     const email = formData.get('email');
     const password = formData.get('password');
-    const pathname = new URL(request.url)
-        .searchParams.get("redirectTo") || "/host"
+    const pathname = new URL(request.url).searchParams.get("redirectTo") || "/host"
+
     try {
-        await loginUser({email, password});
+        let data = await loginUser({email, password});
         localStorage.setItem("loggedin", true);
-        return redirect(pathname);
+        localStorage.setItem("user", JSON.stringify(data.user));
+        localStorage.setItem("token", data.token);
+        const response = redirect(pathname);
+        response.body = true;
+        return response;
     } catch (err) {
-        console.error("Error during login:", err);
         return err.message;
     }
 }
@@ -34,13 +46,14 @@ export default function Login() {
     const navigation = useNavigation();
 
     console.log("Action data:", errorMessage);
+    console.log("Loader data:", message);
 
     return (
         <>
             <div className="h-[calc(100vh-184px)] flex flex-col items-center px-5">
                 <h1 className="text-[32px] leading-[36px] text-[#161616] font-bold mb-4">Sign in to your account</h1>
                 {message && <h3 className="text-[#ff3860] mb-10">{message}</h3>}
-                {errorMessage?.error && <h3 className="red">{errorMessage.error}</h3>}
+                {errorMessage && <h4 className="text-[#ff3860] mb-10">{errorMessage}</h4>}
                 <Form method="post" className="max-w-[500px] w-full flex flex-col">
                     <input
                         type="email"
