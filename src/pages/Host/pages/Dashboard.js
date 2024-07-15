@@ -40,7 +40,7 @@ export default function Dashboard() {
                                 prose-p:text-[#4d4d4d] prose-a:no-underline">
                     <h1>Welcome!</h1>
                     <p>Income last <span className="underline font-bold">30 days</span></p>
-                    <h2>$2,260</h2>
+                    <h2>£2,260</h2>
                 </div>
                 <Link to="income">Details</Link>
             </div>
