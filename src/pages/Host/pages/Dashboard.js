@@ -1,13 +1,16 @@
 import React from "react";
-import { BsFillStarFill } from "react-icons/bs";
+import {BsFillStarFill} from "react-icons/bs";
 import {Link, useLoaderData} from "react-router-dom";
 import {requireAuth} from "../../../utils";
 import {getHostVans} from "../../../api";
-import HostVanItem from "./Vans/HostVanItem";
 
 
 export async function loader({request}) {
-    await requireAuth(request);
+    let response = await requireAuth(request);
+    if (response) {
+        return response;
+    }
+
     return getHostVans();
 }
 

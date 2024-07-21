@@ -33,6 +33,7 @@ import HostLayout from "./layouts/HostLayout";
 
 import "./server";
 import { requireAuth } from "./utils";
+import {getHostVans} from "./api";
 
 const router = createBrowserRouter(
     createRoutesFromElements(

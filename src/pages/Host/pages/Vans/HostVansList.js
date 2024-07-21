@@ -19,7 +19,7 @@ export default function HostVansList() {
 
     return (
         <>
-            <div className="h-[calc(100vh-294px)] max-w-full prose prose-h1:text-[32px] prose-h1:leading-10 prose-h1:font-bold p-5">
+            <div className="max-w-full prose prose-h1:text-[32px] prose-h1:leading-10 prose-h1:font-bold p-5">
                 <h1>Your listed vans</h1>
                 <div className="flex flex-col justify-center gap-5 my-[37px]">
                     <div className="flex flex-col justify-center gap-5">

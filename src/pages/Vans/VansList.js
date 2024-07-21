@@ -40,9 +40,9 @@ export default function VansList() {
 
     return (
         <>
-            <div className="2xl:h-[calc(100vh-184px)] max-w-full prose prose-h1:text-[32px] prose-h1:leading-10 prose-h1:font-bold p-5">
+            <div className="max-w-full prose prose-h1:text-[32px] prose-h1:leading-10 prose-h1:font-bold p-5">
                 <h1>Explore our van options</h1>
-                <div className="flex items-center gap-x-4">
+                <div className="flex flex-wrap items-center gap-4">
                     <button onClick={() => handleFilterChange('type', 'simple')} className={`nested-navBtn hover:bg-[#E17654] ${typeFilter === 'simple' ? 'simple' : ''}`}>Simple</button>
                     <button onClick={() => handleFilterChange('type', 'luxury')} className={`nested-navBtn hover:bg-[#161616] ${typeFilter === 'luxury' ? 'luxury' : ''}`}>Luxury</button>
                     <button onClick={() => handleFilterChange('type', 'rugged')} className={`nested-navBtn hover:bg-[#115E59] ${typeFilter === 'rugged' ? 'rugged' : ''}`}>Rugged</button>

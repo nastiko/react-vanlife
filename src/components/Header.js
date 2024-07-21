@@ -21,7 +21,7 @@ export default function Header() {
     const isLoggedIn = localStorage.getItem("loggedin");
     return (
         <>
-            <header className="bg-[#FFF7ED] h-[110px] flex items-center justify-between p-5">
+            <header className="bg-[#FFF7ED] h-[110px] flex flex-col md:flex-row items-center justify-between p-5">
                 <Link className="text-[25px] font-bold text-[#000000] uppercase hover:underline hover:decoration-2" to="/">#VANLIFE</Link>
                 <nav className="flex items-center justify-between">
                     <NavLink className={({isActive}) => `navBtn ${isActive ? 'active-navBtn' : ''}`} to="host">Host</NavLink>
