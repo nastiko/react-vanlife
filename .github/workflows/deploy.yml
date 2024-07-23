@@ -26,6 +26,8 @@ jobs:
         
     - run: npm ci
     - run: npm run build --if-present
+      env:
+        CI: false
 
     - name: Upload by FTP
       uses: sand4rt/ftp-deployer@v1.8
