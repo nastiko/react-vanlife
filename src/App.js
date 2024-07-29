@@ -36,7 +36,7 @@ import { requireAuth } from "./utils";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route basename="/app" element={<RootLayout/>}>
+        <Route basename="/react/vanlife" element={<RootLayout/>}>
             <Route index element={<Home/>}/>
 
             <Route>

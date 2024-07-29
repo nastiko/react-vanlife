@@ -1,6 +1,6 @@
 {
   "name": "react-vanlife",
-  "homepage": "/app",
+  "homepage": "/react/vanlife",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
