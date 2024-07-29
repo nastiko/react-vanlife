@@ -10,7 +10,7 @@ import {loginUser} from "../api";
 export function loader({request}) {
     const isLoggedIn = localStorage.getItem("loggedin");
     if (isLoggedIn) {
-        const response = redirect('/host');
+        const response = redirect('host');
         response.body = true;
         return response;
     }
