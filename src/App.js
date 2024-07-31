@@ -36,7 +36,7 @@ import {requireAuth} from "./utils";
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path={window.location.pathname} element={<RootLayout/>}>
+        <Route path={process.env.PUBLIC_URL} element={<RootLayout/>}>
             <Route index element={<Home/>}/>
 
             <Route>
